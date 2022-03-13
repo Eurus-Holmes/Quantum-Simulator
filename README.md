@@ -21,6 +21,22 @@
 You can essentially do matrix multiplication without writing down the matrix.  Just loop through the state vector and implement the operations that the matrix is performing.  There are a lot of bit manipulation tactics that can help you figure out which entries in the state vector to operate on.  For instance, if you want to identify whether the kth qubit is 0 or 1 in the ith entry of the state vector, then you can just call 2^(n-k-1) & i.  
 
 
+## Usage
+
+Simply run `python3 compare_simulators.py qasm_files` to test correctness for grading, run `python3 test_simulators.py qasm_files` to test correctness and performance compared with cirq simulator, while `qasm_files` is the directory name of your qasm files.
+
+Recommendation: using `conda` to create a virtual environment to run the code so that it doesn't interfere with the other environment.
+
+```
+conda create --name cs238 python=3.8
+conda activate cs238
+pip install cirq
+pip install numpy
+pip install ply
+```
+
+
+
 # 1. Design and evaluation
 
 ## Present the design of how you parameterized the solution in n
