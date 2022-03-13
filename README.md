@@ -90,7 +90,7 @@ Therefore, I did an ablation study of how running time with the increasing numbe
 
 ## how to provide input
 
-The input is qasm-formatted string, then parse qasm_string to generate circuit operation list, next initialize simulator with num of qubits and run my impletented simulator to execute the operations in order. At last, return state_vector list, with a complex number for each of the 2^num_qubits possible amplitudes.
+The input is qasm-formatted string, then parse qasm_string to generate circuit operation list, next initialize simulator with num of qubits and run my implemented simulator to execute the operations in order. At last, return state_vector list, with a complex number for each of the 2^num_qubits possible amplitudes.
 
 ## how to run the program
 
@@ -98,5 +98,5 @@ Simply run `python3 compare_simulators.py qasm_files` to test correctness for gr
 
 ## how to understand the output
 
-
+The output is state_vector list, the length of list is $2^n$, with each index containing a complex number for each of the $2^n$ possible amplitudes. The indices use big endian ordering for the qubits from reference: https://quantumai.google/reference/python/cirq/sim/StateVectorTrialResult#state_vector
 
