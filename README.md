@@ -90,9 +90,11 @@ Therefore, I did an ablation study of how running time with the increasing numbe
 
 ## how to provide input
 
+The input is qasm-formatted string, then parse qasm_string to generate circuit operation list, next initialize simulator with num of qubits and run my impletented simulator to execute the operations in order. At last, return state_vector list, with a complex number for each of the 2^num_qubits possible amplitudes.
 
 ## how to run the program
 
+Simply run `python3 compare_simulators.py qasm_files` to test correctness for grading, run `python3 test_simulators.py qasm_files` to test correctness and performance compared with cirq simulator, while `qasm_files` is the directory name of your qasm files.
 
 ## how to understand the output
 
