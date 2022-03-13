@@ -25,7 +25,7 @@ You can essentially do matrix multiplication without writing down the matrix.  
 
 ## Present the design of how you parameterized the solution in n
 
-Initialize simulator with parameterized n, where n is num of qubits, which is through preprocessing qasm file to get how many qubits that actually need. The simulate function takes in a qasm-formatted string and returns a list. The length of list is 2^n, with each index containing a complex number for each of the 2^n possible amplitudes.
+Initialize `Simulator` with parameterized $n$, where $n$ is num of qubits, which is through preprocessing qasm file to get how many qubits that actually need. The `simulate` function takes in a qasm-formatted string and returns a list. The length of list is $2^n$, with each index containing a complex number for each of the $2^n$ possible amplitudes.
 
 
 ## Discuss your effort to test your simulator and present results from the testing
