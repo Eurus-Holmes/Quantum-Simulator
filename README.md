@@ -66,13 +66,21 @@ def simulate(qasm_string):
 
 ## Discuss your effort to test your simulator and present results from the testing
 
-The test benchmark includes 14 programs from a subset of QASM, measuring results include correctness and performance. Just run `python3 test_simulators.py qasm_files`, while `qasm_files` is the directory name of qasm files. The program will output: 1). testing bechmark file_name; 2). my simulator runtime; 3). cirq simulator runtime; 4). testing results correctness (compared with cirq simulator). Such as:
+The test benchmark includes 14 programs from a subset of QASM, measuring results include correctness and performance. Just run `python3 test_simulators.py qasm_files`, while `qasm_files` is the directory name of qasm files. The program will output: 1). testing bechmark file_name; 2). my simulator runtime; 3). cirq simulator runtime; 4). testing results correctness (compared with cirq simulator). At last, the program also output the accuracy in all test benchmarks. Such as:
 
 ```
+qasm_files/cnt3-5_179.qasm
+my simulator finished in 0.6671221256256104 seconds
+cirq simulator finished in 0.040255069732666016 seconds
+True
+
 qasm_files/wim_266.qasm
 my simulator finished in 0.0503697395324707 seconds
 cirq simulator finished in 0.13927602767944336 seconds
 True
+
+Total 14 benchmark, 14 are correct, grade is 100.00%!
+
 ```
 
 ## What is your experience with scalability as n grows? Present a diagram that maps n to execution time
@@ -99,4 +107,3 @@ Simply run `python3 compare_simulators.py qasm_files` to test correctness for gr
 ## how to understand the output
 
 The output is state_vector list, the length of list is $2^n$, with each index containing a complex number for each of the $2^n$ possible amplitudes. The indices use big endian ordering for the qubits from reference: https://quantumai.google/reference/python/cirq/sim/StateVectorTrialResult#state_vector
-
