@@ -2,16 +2,13 @@
 
 
 * [1. Design and evaluation](#1-design-and-evaluation)
-  * [Deutsch-Jozsa algorithm](#deutsch-jozsa-algorithm) 
-  * [Bernstein-Vazirani algorithm](#bernstein-vazirani-algorithm)
-  * [Simon's algorithm](#simons-algorithm)
-  * [Grover's algorithm](#grovers-algorithm)
+  * [Present the design of how you parameterized the solution in n](#present-the-design-of-how-you-parameterized-the-solution-in-n) 
+  * [Discuss your effort to test your simulator and present results from the testing](#discuss-your-effort-to-test-your-simulator-and-present-results-from-the-testing)
+  * [Present a diagram that maps n to execution time](#what-is-your-experience-with-scalability-as-n-grows-present-a-diagram-that-maps-n-to-execution-time)
 * [2. Instructions](#2-instructions)
-  * [Deutsch-Jozsa algorithm](#deutsch-jozsa-algorithm) 
-  * [Bernstein-Vazirani algorithm](#bernstein-vazirani-algorithm)
-  * [Simon's algorithm](#simons-algorithm)
-  * [Grover's algorithm](#grovers-algorithm)
-* [3. Cirq](#3-cirq)
+  * [how to provide input](#how-to-provide-input) 
+  * [how to run the program](#how-to-run-the-program)
+  * [how-to-understand-the-output](#how-to-understand-the-output)
 
 
 ## Highlight
@@ -26,13 +23,13 @@ You can essentially do matrix multiplication without writing down the matrix.  
 
 # 1. Design and evaluation
 
-## Present the design of how you parameterized the solution in n.
+## Present the design of how you parameterized the solution in n
 
 
-## Discuss your effort to test your simulator and present results from the testing.
+## Discuss your effort to test your simulator and present results from the testing
 
 
-## What is your experience with scalability as n grows? Present a diagram that maps n to execution time.
+## What is your experience with scalability as n grows? Present a diagram that maps n to execution time
 
 
 # 2. Instructions
