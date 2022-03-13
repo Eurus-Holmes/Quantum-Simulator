@@ -1,6 +1,5 @@
 # Report of Implement a quantum circuit simulator
 
-
 * [1. Design and evaluation](#1-design-and-evaluation)
   * [Present the design of how you parameterized the solution in n](#present-the-design-of-how-you-parameterized-the-solution-in-n) 
   * [Discuss your effort to test your simulator and present results from the testing](#discuss-your-effort-to-test-your-simulator-and-present-results-from-the-testing)
@@ -13,12 +12,11 @@
 
 ## Highlight
 
-- **Particularly comprehensive evaluation and testing**: We included enumerating a range of the length of the input bitstring n and random different Uf functions, as well as customed input n and input function. We measured the standard deviation of runtime and mean run time over 100 repetitions for different randomly generated functions Uf at a range n from 1 to 15. More details are as follow.
-- **Code well designed for improved usability or ease of understanding**: Our code includes a unified structure and some general modules: `make_oracle`, `make_dj_circuit`, `run` on the simulator, and `plot` a diagram that maps n to execution time to be reused code from one program to the next. More details are as follow.
-- **Vivid diagram display**: We plot diagrams of the execution time as the input n changes, which can show the results more clearly and intuitively.
-
-
-You can essentially do matrix multiplication without writing down the matrix.  Just loop through the state vector and implement the operations that the matrix is performing.  There are a lot of bit manipulation tactics that can help you figure out which entries in the state vector to operate on.  For instance, if you want to identify whether the kth qubit is 0 or 1 in the ith entry of the state vector, then you can just call 2^(n-k-1) & i.  
+- **Particularly comprehensive evaluation and testing**: The test includes not only the correctness on the benchmark but also the performance, i.e. the execution time compared to the cirq simulator for the same benchmark, as well as custom additional test cases. More details are as follow.
+- **Interesting finding**: Intuitively, the running time of the simulator should increase with the num of qubits grow, and the simulator I implemented also meets this expectation. But when I check running time of original cirq simulator, it seems that the number of operations (qasm lines) have more impact on running time than num of qubits. So I also performed ablation study to fix num of qubits and numb of operations (gates) respectively, to verify this finding. More details are as follow.
+- **Speed up tips**: Implement each gate with bit manipulation to the target and control qubit rather than original matrix multiplication. For example, in order to identify whether the k^th qubit is 0 or 1 in the i^th entry of the state vector, just call 2^(n-k-1) & i. More details are in code.
+- **Code well designed for improved usability or ease of understanding**: The code structure is very clear, including Simulator class (`__init__(self, n)`, `operation(self, gate, target, control=None)`, `run(self, circuit)`, `state_vector(self)`) and `parse_qasm(qasm_string)`, and a preprocessing function `get_num_qubits(qasm_string)` to get how many qubits that actually need. More details are as follow.
+- **Vivid diagram display**: Plot diagrams of the execution time as the input n changes, which can show the results more clearly and intuitively.
 
 
 ## Usage
@@ -34,7 +32,6 @@ pip install cirq
 pip install numpy
 pip install ply
 ```
-
 
 
 # 1. Design and evaluation
@@ -107,3 +104,4 @@ Simply run `python3 compare_simulators.py qasm_files` to test correctness for gr
 ## how to understand the output
 
 The output is state_vector list, the length of list is $2^n$, with each index containing a complex number for each of the $2^n$ possible amplitudes. The indices use big endian ordering for the qubits from reference: https://quantumai.google/reference/python/cirq/sim/StateVectorTrialResult#state_vector
+
