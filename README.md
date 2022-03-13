@@ -50,6 +50,14 @@ def simulate(qasm_string):
 
 ## Discuss your effort to test your simulator and present results from the testing
 
+The test benchmark includes 14 programs from a subset of QASM, measuring results include correctness and performance. Just run `python3 test_simulators.py qasm_files`, while `qasm_files` is the directory name of qasm files. The program will output: 1). testing bechmark file_name; 2). my simulator runtime; 3). cirq simulator runtime; 4). testing results correctness (compared with cirq simulator). Such as:
+
+```
+qasm_files/wim_266.qasm
+my simulator finished in 0.0503697395324707 seconds
+cirq simulator finished in 0.13927602767944336 seconds
+True
+```
 
 ## What is your experience with scalability as n grows? Present a diagram that maps n to execution time
 
