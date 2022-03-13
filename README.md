@@ -27,6 +27,26 @@ You can essentially do matrix multiplication without writing down the matrix.  
 
 Initialize `Simulator` with parameterized $n$, where $n$ is num of qubits, which is through preprocessing qasm file to get how many qubits that actually need. The `simulate` function takes in a qasm-formatted string and returns a list. The length of list is $2^n$, with each index containing a complex number for each of the $2^n$ possible amplitudes.
 
+```python
+def simulate(qasm_string):
+    """
+    simulate function on the qasm string to compare the results with cirq simulator
+    :param qasm_string: qasm-formatted string
+    :return: state_vector list
+    """
+    # preprocessing qasm_string to get how many qubits that actually need
+    num_qubits = get_num_qubits(qasm_string)
+    # parse qasm_string to generate circuit operation list
+    circuit = parse_qasm(qasm_string)
+    # initialize simulator with num of qubits
+    my_simulator = Simulator(num_qubits)
+    # run my simulator to execute the operations in order
+    my_simulator.run(circuit)
+    # return state_vector list, with a complex number for
+    # each of the 2^num_qubits possible amplitudes
+    state = my_simulator.state_vector()
+    return state
+```
 
 ## Discuss your effort to test your simulator and present results from the testing
 
