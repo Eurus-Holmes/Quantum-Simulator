@@ -21,6 +21,7 @@
 - **Vivid diagram display**: We plot diagrams of the execution time as the input n changes, which can show the results more clearly and intuitively.
 
 
+You can essentially do matrix multiplication without writing down the matrix.  Just loop through the state vector and implement the operations that the matrix is performing.  There are a lot of bit manipulation tactics that can help you figure out which entries in the state vector to operate on.  For instance, if you want to identify whether the kth qubit is 0 or 1 in the ith entry of the state vector, then you can just call 2^(n-k-1) & i.  
 
 
 # 1. Design and evaluation
