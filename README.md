@@ -61,6 +61,14 @@ True
 
 ## What is your experience with scalability as n grows? Present a diagram that maps n to execution time
 
+For my impletented simulator, when n is less than 10, the execution time has little variation. As n grows further, the execution time increases almost exponentially , as is shown in the below figure:
+![my_simulator_time](my_simulator_time.png)
+
+Interestingly, I also checked execution time of cirq simulator, it seems that the number of operations (qasm lines) have more impact on running time than num of qubits, as is shown in the below figure:
+![simulator_time](simulator_time.png)
+
+Therefore, I did an ablation study of how running time with the increasing number of operations. To isolate this factor, I create a custom qasm file that keeps the number of gates fixed, simply increase the number of qubits and then perform the time analysis with scalability as n grows. It validates this observation and normally increases with n grows as expected.
+
 
 # 2. Instructions
 
